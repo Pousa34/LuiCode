@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Estudios - Ejercicios</title>
+    <style>
+        /* Variables de diseño inspiradas en Apple */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            --card-bg: rgba(255, 255, 255, 0.45);
+            --card-border: rgba(255, 255, 255, 0.4);
+            --text-color: #1d1d1f;
+            --text-secondary: #424245;
+            --accent-color: #0071e3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor de los enlaces */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Estilo de los botones (Efecto Cristal de iOS) */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animación al pasar el ratón (Hover) */
+        .btn-link:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Efecto de pulsación (Active) simulando feedback táctil */
+        .btn-link:active {
+            transform: translateY(-1px) scale(0.98);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Icono de la flecha estilo iOS */
+        .btn-link::after {
+            content: "→";
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Footer sutil */
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mis Estudios</h1>
+            <p>Selecciona un tema para ver los ejercicios</p>
+        </header>
+
+        <main class="links-container">
+            <a href="https://drive.google.com/your-link-tema1" target="_blank" class="btn-link">
+                Tema 1: Introducción
+            </a>
+            <a href="#" target="_blank" class="btn-link">
+                Tema 2: Desarrollo del contenido
+            </a>
+            <a href="#" target="_blank" class="btn-link">
+                Tema 3: Ejercicios Avanzados
+            </a>
+            <a href="#" target="_blank" class="btn-link">
+                Tema 4: Repaso de Examen
+            </a>
+        </main>
+
+        <footer>
+            <p>© 2026 - Creado con GitHub Pages</p>
+        </footer>
+    </div>
+
+</body>
+</html>
