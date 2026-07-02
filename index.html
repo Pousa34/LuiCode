@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Estudios - SPG</title>
-    <!-- Cargando fuentes de alta gama de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #05070c;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #080b11;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.09);
             --text-color: #f5f5f7;
-            --text-secondary: #86868b;
-            --accent-color: #d4af37; /* Toque dorado señorial pálido */
+            --text-secondary: #9aa0a6;
+            --accent-color: #a4c2f4;
             --serif-font: 'Cinzel', 'Playfair Display', Georgia, serif;
             --sans-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
@@ -41,31 +40,32 @@
             position: relative;
         }
 
+        /* Fondos decorativos de atmósfera espacial (Auroras) */
         .aurora {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
+            filter: blur(100px);
+            opacity: 0.12;
             z-index: 0;
             pointer-events: none;
-            animation: float 20s infinite ease-in-out alternate;
+            animation: float 16s infinite ease-in-out alternate;
         }
         .aurora-1 {
-            background: #1e3a8a;
-            top: -200px;
-            left: -200px;
+            background: #4a57a8;
+            top: -150px;
+            left: -150px;
         }
         .aurora-2 {
-            background: #581c87;
-            bottom: -250px;
-            right: -200px;
+            background: #2b7a78;
+            bottom: -200px;
+            right: -150px;
             animation-delay: -5s;
         }
         .aurora-3 {
-            background: #022c22;
-            top: 40%;
+            background: #7b2cbf;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             animation-delay: -10s;
@@ -73,26 +73,26 @@
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(80px, 50px) scale(1.2); }
+            100% { transform: translate(60px, 40px) scale(1.15); }
         }
 
         .container {
             width: 100%;
-            max-width: 450px;
+            max-width: 460px;
             text-align: center;
             z-index: 1;
         }
 
         .logo-container {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             display: inline-block;
-            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
-            animation: hoverLogo 6s infinite ease-in-out;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+            animation: hoverLogo 5s infinite ease-in-out;
         }
 
         @keyframes hoverLogo {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(0.5deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
         }
 
         .spg-logo {
@@ -101,82 +101,135 @@
 
         header h1 {
             font-family: var(--serif-font);
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 3px;
-            background: linear-gradient(180deg, #ffffff 40%, #b5c2d4 100%);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            background: linear-gradient(180deg, #ffffff 30%, #b3b3b3 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
         }
 
         header p {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            letter-spacing: 0.8px;
-            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            margin-bottom: 35px;
             font-weight: 400;
-            font-family: var(--sans-font);
         }
 
-        .links-container {
+        .accordion-menu {
             display: flex;
             flex-direction: column;
             gap: 16px;
+            text-align: left;
         }
 
-        .btn-link {
+        .category-group {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .category-group:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Botón de Categoría Principal */
+        .category-header {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 22px 26px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
+            padding: 22px 24px;
+            background: transparent;
+            border: none;
             color: var(--text-color);
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            outline: none;
+            overflow: hidden;
+        }
+
+        /* Flecha indicadora */
+        .category-header::after {
+            content: "▼";
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            opacity: 0.7;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Animación de apertura de la categoría */
+        .category-group.open .category-header::after {
+            transform: rotate(180deg);
+        }
+
+        /* Contenedor colapsable de los subtemas */
+        .topics-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .topics-list {
+            padding: 8px 16px 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Botones de Temas (Hijos) */
+        .btn-topic {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: #d1d5db;
             text-decoration: none;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                        background-color 0.5s ease, 
-                        border-color 0.5s ease,
-                        box-shadow 0.5s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
 
-        /* Efectos Hover elegantes de herencia minimalista */
-        .btn-link:hover {
-            transform: scale(1.02) translateY(-2px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.18);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        .btn-topic:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-color);
+            transform: translateX(3px);
         }
 
-        .btn-link:active {
-            transform: scale(0.98) translateY(0);
-        }
-
-        /* Flecha estilizada minimalista */
-        .btn-link::after {
+        .btn-topic::after {
             content: "⟶";
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: var(--accent-color);
-            opacity: 0.7;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-            z-index: 2;
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .btn-link:hover::after {
-            transform: translateX(8px);
-            opacity: 1;
+        .btn-topic:hover::after {
+            opacity: 0.9;
+            transform: translateX(0);
         }
 
+        /* Ondas de agua de iOS (Ripple Effect) */
         .water-drop {
             position: absolute;
             background: rgba(255, 255, 255, 0.15);
@@ -185,8 +238,8 @@
             animation: liquid-ripple 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
             pointer-events: none;
             mix-blend-mode: overlay;
-            filter: blur(1px);
-            z-index: 1;
+            filter: blur(2px);
+            z-index: 10;
         }
 
         @keyframes liquid-ripple {
@@ -202,11 +255,10 @@
             }
         }
 
-        /* Pie de página majestuoso y simple */
         footer {
-            margin-top: 60px;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
+            margin-top: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             color: var(--text-secondary);
             text-transform: uppercase;
         }
@@ -214,7 +266,7 @@
 </head>
 <body>
 
-    <!-- Atmósferas gaseosas en segundo plano -->
+    <!-- Fondos de atmósfera líquida de fondo -->
     <div class="aurora aurora-1"></div>
     <div class="aurora aurora-2"></div>
     <div class="aurora aurora-3"></div>
@@ -222,76 +274,133 @@
     <div class="container">
         
         <div class="logo-container">
-            <svg class="spg-logo" viewBox="0 0 200 200" width="140" height="140">
+            <svg class="spg-logo" viewBox="0 0 200 200" width="130" height="130">
                 <defs>
-                    <!-- Resplandor de misticismo heráldico -->
                     <filter id="royalGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feGaussianBlur stdDeviation="4" result="blur" />
                         <feComposite in="SourceGraphic" in2="blur" operator="over" />
                     </filter>
                     
-                    <!-- Degradados de alta fidelidad estilo metal pulido y platino -->
-                    <linearGradient id="silverS" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#ffffff" />
-                        <stop offset="50%" stop-color="#cfd9df" />
-                        <stop offset="100%" stop-color="#a3b8cc" />
+                    <linearGradient id="royalS" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#cfd9df" />
+                        <stop offset="100%" stop-color="#e2ebf0" />
                     </linearGradient>
-                    <linearGradient id="goldP" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#fff4e0" />
-                        <stop offset="50%" stop-color="#ebd2a9" />
-                        <stop offset="100%" stop-color="#b89358" />
+                    <linearGradient id="royalP" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fdfcfb" />
+                        <stop offset="100%" stop-color="#e2d1c3" />
                     </linearGradient>
-                    <linearGradient id="silverG" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#e2ebf0" />
-                        <stop offset="50%" stop-color="#cbd5e1" />
-                        <stop offset="100%" stop-color="#94a3b8" />
+                    <linearGradient id="royalG" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#a8b2d1" />
+                        <stop offset="100%" stop-color="#cbd5e1" />
                     </linearGradient>
                     
-                    <!-- Marco exterior de oro sutil -->
-                    <linearGradient id="frameGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="rgba(212, 175, 55, 0.4)" />
-                        <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)" />
-                        <stop offset="100%" stop-color="rgba(184, 147, 88, 0.3)" />
+                    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(255, 255, 255, 0.25)" />
+                        <stop offset="50%" stop-color="rgba(255, 255, 255, 0.03)" />
+                        <stop offset="100%" stop-color="rgba(255, 255, 255, 0.15)" />
                     </linearGradient>
                 </defs>
                 
-                <!-- Anillos del Escudo Señorial -->
-                <circle cx="100" cy="100" r="85" fill="rgba(255,255,255,0.01)" stroke="url(#frameGold)" stroke-width="1.5" />
-                <circle cx="100" cy="100" r="77" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" stroke-dasharray="8 4" />
-                <circle cx="100" cy="100" r="73" fill="none" stroke="rgba(212, 175, 55, 0.1)" stroke-width="1" />
+                <circle cx="100" cy="100" r="82" fill="rgba(255,255,255,0.02)" stroke="url(#goldRing)" stroke-width="1" />
+                <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5" stroke-dasharray="10 6" />
+                <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
 
-                <!-- Letras entrelazadas con fuente serif señorial "Cinzel" grabada -->
                 <g style="mix-blend-mode: screen;">
-                    <!-- Letra S (Izquierda, más profunda) -->
-                    <text x="32" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#silverS)" filter="url(#royalGlow)" opacity="0.85">S</text>
-                    
-                    <!-- Letra G (Derecha, nivel intermedio) -->
-                    <text x="110" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#silverG)" filter="url(#royalGlow)" opacity="0.85">G</text>
-                    
-                    <!-- Letra P (Centro/Arriba, destaca en primer plano con tonos dorados) -->
-                    <text x="71" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#goldP)" filter="url(#royalGlow)" opacity="1">P</text>
+                    <text x="36" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalS)" filter="url(#royalGlow)" opacity="0.95">S</text>
+                    <text x="76" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalP)" filter="url(#royalGlow)" opacity="1">P</text>
+                    <text x="114" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalG)" filter="url(#royalGlow)" opacity="0.95">G</text>
                 </g>
             </svg>
         </div>
 
         <header>
             <h1>LuiCode</h1>
-            <p>Selecciona un tema para ver los ejercicios</p>
+            <p>Selecciona una materia para ver sus temas</p>
         </header>
 
-        <main class="links-container">
-            <a href="https://drive.google.com/your-link-tema1" target="_blank" class="btn-link">
-                Tema 1: Introducción
-            </a>
-            <a href="#" target="_blank" class="btn-link">
-                Tema 2: Desarrollo del contenido
-            </a>
-            <a href="#" target="_blank" class="btn-link">
-                Tema 3: Ejercicios Avanzados
-            </a>
-            <a href="#" target="_blank" class="btn-link">
-                Tema 4: Repaso de Examen
-            </a>
+        <main class="accordion-menu">
+            
+            <!-- SECCIÓN ISO -->
+            <div class="category-group">
+                <button class="category-header">
+                    ISO
+                </button>
+                <div class="topics-content">
+                    <div class="topics-list">
+                        <!-- Reemplaza los "#" por tus respectivos enlaces de Drive -->
+                        <a href="https://drive.google.com/your-iso-tema1" target="_blank" class="btn-topic">
+                            Tema 1: Software básico
+                        </a>
+                        <a href="https://drive.google.com/your-iso-tema2" target="_blank" class="btn-topic">
+                            Tema 2: Administración de software de base
+                        </a>
+                        <a href="https://drive.google.com/your-iso-tema3" target="_blank" class="btn-topic">
+                            Tema 3: Aseguramiento de la administración
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN FUHA -->
+            <div class="category-group">
+                <button class="category-header">
+                    FUHA
+                </button>
+                <div class="topics-content">
+                    <div class="topics-list">
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 1: Arquitectura y componentes
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 2: Montaje y ensamblado
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 3: Diagnóstico de averías
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN PAR -->
+            <div class="category-group">
+                <button class="category-header">
+                    PAR
+                </button>
+                <div class="topics-content">
+                    <div class="topics-list">
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 1: Planificación y diseño de redes
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 2: Direccionamiento IP y subredes
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 3: Configuración y administración
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN LENGUAJE -->
+            <div class="category-group">
+                <button class="category-header">
+                    LENGUAJE
+                </button>
+                <div class="topics-content">
+                    <div class="topics-list">
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 1: Introducción a lenguajes de marcas
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 2: HTML5 y CSS3 para el diseño
+                        </a>
+                        <a href="#" target="_blank" class="btn-topic">
+                            Tema 3: Almacenamiento y paso de datos XML
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
         <footer>
@@ -300,14 +409,40 @@
     </div>
 
     <script>
-        document.querySelectorAll('.btn-link').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Cálculo preciso del toque/clic relativo a la tarjeta
+        // Lógica de acordeón interactivo (iOS Style)
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', function(e) {
+                const group = this.parentElement;
+                const content = group.querySelector('.topics-content');
+                const isOpen = group.classList.contains('open');
+
+                // Cerrar otros acordeones abiertos si se desea (Comportamiento exclusivo)
+                document.querySelectorAll('.category-group').forEach(otherGroup => {
+                    if (otherGroup !== group && otherGroup.classList.contains('open')) {
+                        otherGroup.classList.remove('open');
+                        otherGroup.querySelector('.topics-content').style.maxHeight = null;
+                    }
+                });
+
+                // Alternar estado del acordeón pulsado
+                if (isOpen) {
+                    group.classList.remove('open');
+                    content.style.maxHeight = null;
+                } else {
+                    group.classList.add('open');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Efecto Gota de Agua (Onda/Ripple) en clicks e interactivos
+        document.querySelectorAll('.category-header, .btn-topic').forEach(element => {
+            element.addEventListener('click', function(e) {
+                // No bloquear enlaces reales
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
 
-                // Creando el elemento de onda de agua
                 const drop = document.createElement('span');
                 drop.classList.add('water-drop');
                 drop.style.left = `${x}px`;
@@ -315,7 +450,6 @@
 
                 this.appendChild(drop);
 
-                // Limpieza de memoria eliminando el elemento del DOM al finalizar la animación
                 setTimeout(() => {
                     drop.remove();
                 }, 800);
