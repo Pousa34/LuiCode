@@ -3,122 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Estudios - Ejercicios</title>
+    <title>Mis Estudios - SPG</title>
+    <!-- Cargando fuentes de alta gama de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Variables de diseño inspiradas en Apple */
         :root {
-            --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            --card-bg: rgba(255, 255, 255, 0.45);
-            --card-border: rgba(255, 255, 255, 0.4);
-            --text-color: #1d1d1f;
-            --text-secondary: #424245;
-            --accent-color: #0071e3;
+            --bg-color: #05070c;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-color: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #d4af37; /* Toque dorado señorial pálido */
+            --serif-font: 'Cinzel', 'Playfair Display', Georgia, serif;
+            --sans-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--sans-font);
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
+            background-color: var(--bg-color);
             color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .aurora-1 {
+            background: #1e3a8a;
+            top: -200px;
+            left: -200px;
+        }
+        .aurora-2 {
+            background: #581c87;
+            bottom: -250px;
+            right: -200px;
+            animation-delay: -5s;
+        }
+        .aurora-3 {
+            background: #022c22;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.2); }
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             text-align: center;
+            z-index: 1;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            display: inline-block;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+            animation: hoverLogo 6s infinite ease-in-out;
+        }
+
+        @keyframes hoverLogo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+
+        .spg-logo {
+            display: block;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-family: var(--serif-font);
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+            background: linear-gradient(180deg, #ffffff 40%, #b5c2d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 0.95rem;
+            letter-spacing: 0.8px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            font-family: var(--sans-font);
         }
 
-        /* Contenedor de los enlaces */
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
-        /* Estilo de los botones (Efecto Cristal de iOS) */
         .btn-link {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 24px;
+            padding: 22px 26px;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
             color: var(--text-color);
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.5s ease, 
+                        border-color 0.5s ease,
+                        box-shadow 0.5s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* Animación al pasar el ratón (Hover) */
+        /* Efectos Hover elegantes de herencia minimalista */
         .btn-link:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.02) translateY(-2px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
         }
 
-        /* Efecto de pulsación (Active) simulando feedback táctil */
         .btn-link:active {
-            transform: translateY(-1px) scale(0.98);
-            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0.98) translateY(0);
         }
 
-        /* Icono de la flecha estilo iOS */
+        /* Flecha estilizada minimalista */
         .btn-link::after {
-            content: "→";
-            font-size: 1.2rem;
+            content: "⟶";
+            font-size: 1.4rem;
             color: var(--accent-color);
-            transition: transform 0.3s ease;
+            opacity: 0.7;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            z-index: 2;
         }
 
         .btn-link:hover::after {
-            transform: translateX(4px);
+            transform: translateX(8px);
+            opacity: 1;
         }
 
-        /* Footer sutil */
+        .water-drop {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: liquid-ripple 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            filter: blur(1px);
+            z-index: 1;
+        }
+
+        @keyframes liquid-ripple {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+            }
+        }
+
+        /* Pie de página majestuoso y simple */
         footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
             color: var(--text-secondary);
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
+    <!-- Atmósferas gaseosas en segundo plano -->
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+
     <div class="container">
+        
+        <div class="logo-container">
+            <svg class="spg-logo" viewBox="0 0 200 200" width="140" height="140">
+                <defs>
+                    <!-- Resplandor de misticismo heráldico -->
+                    <filter id="royalGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                    
+                    <!-- Degradados de alta fidelidad estilo metal pulido y platino -->
+                    <linearGradient id="silverS" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="50%" stop-color="#cfd9df" />
+                        <stop offset="100%" stop-color="#a3b8cc" />
+                    </linearGradient>
+                    <linearGradient id="goldP" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff4e0" />
+                        <stop offset="50%" stop-color="#ebd2a9" />
+                        <stop offset="100%" stop-color="#b89358" />
+                    </linearGradient>
+                    <linearGradient id="silverG" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#e2ebf0" />
+                        <stop offset="50%" stop-color="#cbd5e1" />
+                        <stop offset="100%" stop-color="#94a3b8" />
+                    </linearGradient>
+                    
+                    <!-- Marco exterior de oro sutil -->
+                    <linearGradient id="frameGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(212, 175, 55, 0.4)" />
+                        <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)" />
+                        <stop offset="100%" stop-color="rgba(184, 147, 88, 0.3)" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Anillos del Escudo Señorial -->
+                <circle cx="100" cy="100" r="85" fill="rgba(255,255,255,0.01)" stroke="url(#frameGold)" stroke-width="1.5" />
+                <circle cx="100" cy="100" r="77" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" stroke-dasharray="8 4" />
+                <circle cx="100" cy="100" r="73" fill="none" stroke="rgba(212, 175, 55, 0.1)" stroke-width="1" />
+
+                <!-- Letras entrelazadas con fuente serif señorial "Cinzel" grabada -->
+                <g style="mix-blend-mode: screen;">
+                    <!-- Letra S (Izquierda, más profunda) -->
+                    <text x="32" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#silverS)" filter="url(#royalGlow)" opacity="0.85">S</text>
+                    
+                    <!-- Letra G (Derecha, nivel intermedio) -->
+                    <text x="110" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#silverG)" filter="url(#royalGlow)" opacity="0.85">G</text>
+                    
+                    <!-- Letra P (Centro/Arriba, destaca en primer plano con tonos dorados) -->
+                    <text x="71" y="123" font-family="'Cinzel', Georgia, serif" font-size="82" font-weight="900" fill="url(#goldP)" filter="url(#royalGlow)" opacity="1">P</text>
+                </g>
+            </svg>
+        </div>
+
         <header>
-            <h1>Mis Estudios</h1>
+            <h1>LuiCode</h1>
             <p>Selecciona un tema para ver los ejercicios</p>
         </header>
 
@@ -138,9 +295,32 @@
         </main>
 
         <footer>
-            <p>© 2026 - Creado con GitHub Pages</p>
+            <p>© 2026 - CREADO CON GITHUB PAGES</p>
         </footer>
     </div>
 
+    <script>
+        document.querySelectorAll('.btn-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Cálculo preciso del toque/clic relativo a la tarjeta
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Creando el elemento de onda de agua
+                const drop = document.createElement('span');
+                drop.classList.add('water-drop');
+                drop.style.left = `${x}px`;
+                drop.style.top = `${y}px`;
+
+                this.appendChild(drop);
+
+                // Limpieza de memoria eliminando el elemento del DOM al finalizar la animación
+                setTimeout(() => {
+                    drop.remove();
+                }, 800);
+            });
+        });
+    </script>
 </body>
 </html>
