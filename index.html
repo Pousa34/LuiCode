@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>LuiCode - Mis Estudios</title>
-    <meta name="description" content="LuiCode: Selección de materias, temas de estudio, ejercicios de ISO, FUHA, PAR y LENGUAJE. Accede de forma organizada a todos los recursos de Drive.">
-    <meta name="keywords" content="LuiCode, Luicode, mis estudios, ISO, FUHA, PAR, LENGUAJE, apuntes, ejercicios drive">
+    <title>LuiCode - Centro de Estudios Premium</title>
+    <meta name="description" content="LuiCode: Centro inteligente de estudios. Organiza tus materias (ISO, FUHA, PAR, LENGUAJE), haz seguimiento de tu progreso y accede a tus recursos de Google Drive.">
+    <meta name="keywords" content="LuiCode, Luicode, mis estudios, ISO, FUHA, PAR, LENGUAJE, apuntes, ejercicios drive, organizador de estudios">
     <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="jsmdNzusviFUNBHo5vSFVipuDc_vGp_2Pnws0NDpIIo" />
     
-    <!-- COPIA Y PEGA AQUÍ TU ETIQUETA DE VERIFICACIÓN DE GOOGLE (TE EXPLICO CÓMO ABAJO) -->
-    <!-- <meta name="google-site-verification" content="jsmdNzusviFUNBHo5vSFVipuDc_vGp_2Pnws0NDpIIo" /> -->
+    <!-- Inserta aquí tu etiqueta de verificación de Google si la tienes -->
+    <!-- <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION" /> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Tailwind CSS para maquetación ágil -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         :root {
-            --bg-color: #080b11;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.09);
+            --bg-color: #060913;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
             --text-color: #f5f5f7;
             --text-secondary: #9aa0a6;
             --accent-color: #a4c2f4;
+            --accent-glow: rgba(164, 194, 244, 0.15);
+            
             --serif-font: 'Cinzel', 'Playfair Display', Georgia, serif;
             --sans-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
@@ -39,26 +45,21 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 24px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Fondos decorativos de atmósfera espacial (Auroras) */
         .aurora {
             position: absolute;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.12;
+            filter: blur(120px);
+            opacity: 0.08;
             z-index: 0;
             pointer-events: none;
-            animation: float 16s infinite ease-in-out alternate;
+            animation: float 20s infinite ease-in-out alternate;
         }
         .aurora-1 {
             background: #4a57a8;
@@ -66,14 +67,14 @@
             left: -150px;
         }
         .aurora-2 {
-            background: #2b7a78;
+            background: #1d7074;
             bottom: -200px;
             right: -150px;
             animation-delay: -5s;
         }
         .aurora-3 {
-            background: #7b2cbf;
-            top: 45%;
+            background: #6411ad;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             animation-delay: -10s;
@@ -81,350 +82,433 @@
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(60px, 40px) scale(1.15); }
+            100% { transform: translate(80px, 50px) scale(1.2); }
         }
 
-        .container {
-            width: 100%;
-            max-width: 460px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .logo-container {
-            margin-bottom: 25px;
-            display: inline-block;
-            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
-            animation: hoverLogo 5s infinite ease-in-out;
-        }
-
-        @keyframes hoverLogo {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-
-        .spg-logo {
-            display: block;
-        }
-
-        header h1 {
-            font-family: var(--serif-font);
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            background: linear-gradient(180deg, #ffffff 30%, #b3b3b3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-        }
-
-        header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 35px;
-            font-weight: 400;
-        }
-
-        .accordion-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            text-align: left;
-        }
-
-        .category-group {
+        /* Estilos de Cristal de iOS (Glassmorphism) */
+        .glass-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 18px;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .category-group:hover {
+        .glass-card:hover {
             border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Botón de Categoría Principal */
-        .category-header {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 22px 24px;
-            background: transparent;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.15rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            position: relative;
-            outline: none;
-            overflow: hidden;
+        /* Títulos Señoriales */
+        .royal-title {
+            font-family: var(--serif-font);
+            background: linear-gradient(180deg, #ffffff 20%, #a3a3a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Flecha indicadora */
         .category-header::after {
             content: "▼";
             font-size: 0.75rem;
             color: var(--accent-color);
-            opacity: 0.7;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        /* Animación de apertura de la categoría */
         .category-group.open .category-header::after {
             transform: rotate(180deg);
         }
 
-        /* Contenedor colapsable de los subtemas */
         .topics-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            background: rgba(0, 0, 0, 0.15);
-        }
-
-        .topics-list {
-            padding: 8px 16px 20px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* Botones de Temas (Hijos) */
-        .btn-topic {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            color: #d1d5db;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-topic:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.12);
-            color: var(--text-color);
-            transform: translateX(3px);
-        }
-
-        .btn-topic::after {
-            content: "⟶";
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            opacity: 0;
-            transform: translateX(-5px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-topic:hover::after {
-            opacity: 0.9;
-            transform: translateX(0);
         }
 
         /* Ondas de agua de iOS (Ripple Effect) */
         .water-drop {
             position: absolute;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
             animation: liquid-ripple 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
             pointer-events: none;
-            mix-blend-mode: overlay;
-            filter: blur(2px);
             z-index: 10;
         }
 
         @keyframes liquid-ripple {
-            0% {
-                width: 0px;
-                height: 0px;
-                opacity: 0.8;
-            }
-            100% {
-                width: 500px;
-                height: 500px;
-                opacity: 0;
-            }
+            0% { width: 0px; height: 0px; opacity: 0.8; }
+            100% { width: 600px; height: 600px; opacity: 0; }
         }
 
-        footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
+        /* Casilla de verificación de progreso estilizada */
+        .custom-checkbox {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .custom-checkbox:checked {
+            background-color: #34c759;
+            border-color: #34c759;
+            box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
+        }
+        .custom-checkbox:checked::after {
+            content: "✓";
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Desdibujar elementos que no coinciden en la búsqueda */
+        .topic-hidden {
+            display: none !important;
+        }
+        .category-hidden {
+            display: none !important;
         }
     </style>
 </head>
-<body>
+<body class="py-8 px-4 flex justify-center items-center">
 
-    <!-- Fondos de atmósfera líquida de fondo -->
+    <!-- Auroras cósmicas del fondo -->
     <div class="aurora aurora-1"></div>
     <div class="aurora aurora-2"></div>
     <div class="aurora aurora-3"></div>
 
-    <div class="container">
+    <div class="w-full max-w-2xl relative z-10 flex flex-col gap-6">
         
-        <div class="logo-container">
-            <svg class="spg-logo" viewBox="0 0 200 200" width="130" height="130">
-                <defs>
-                    <filter id="royalGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                    
-                    <linearGradient id="royalS" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#cfd9df" />
-                        <stop offset="100%" stop-color="#e2ebf0" />
-                    </linearGradient>
-                    <linearGradient id="royalP" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#fdfcfb" />
-                        <stop offset="100%" stop-color="#e2d1c3" />
-                    </linearGradient>
-                    <linearGradient id="royalG" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#a8b2d1" />
-                        <stop offset="100%" stop-color="#cbd5e1" />
-                    </linearGradient>
-                    
-                    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="rgba(255, 255, 255, 0.25)" />
-                        <stop offset="50%" stop-color="rgba(255, 255, 255, 0.03)" />
-                        <stop offset="100%" stop-color="rgba(255, 255, 255, 0.15)" />
-                    </linearGradient>
-                </defs>
-                
-                <circle cx="100" cy="100" r="82" fill="rgba(255,255,255,0.02)" stroke="url(#goldRing)" stroke-width="1" />
-                <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5" stroke-dasharray="10 6" />
-                <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
-
-                <g style="mix-blend-mode: screen;">
-                    <text x="36" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalS)" filter="url(#royalGlow)" opacity="0.95">S</text>
-                    <text x="76" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalP)" filter="url(#royalGlow)" opacity="1">P</text>
-                    <text x="114" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalG)" filter="url(#royalGlow)" opacity="0.95">G</text>
-                </g>
-            </svg>
-        </div>
-
-        <header>
-            <h1>LuiCode</h1>
-            <p>Selecciona una materia para ver sus temas</p>
+        <!-- CABECERA PRINCIPAL Y LOGO SEÑORIAL -->
+        <header class="text-center flex flex-col items-center">
+            <div class="mb-4 transform hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <svg class="mx-auto filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]" viewBox="0 0 200 200" width="130" height="130">
+                    <defs>
+                        <filter id="royalGlow" x="-25%" y="-25%" width="150%" height="150%">
+                            <feGaussianBlur stdDeviation="5" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <linearGradient id="royalS" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#e2e8f0" />
+                            <stop offset="100%" stop-color="#94a3b8" />
+                        </linearGradient>
+                        <linearGradient id="royalP" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="100%" stop-color="#cbd5e1" />
+                        </linearGradient>
+                        <linearGradient id="royalG" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#94a3b8" />
+                            <stop offset="100%" stop-color="#475569" />
+                        </linearGradient>
+                        <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255, 255, 255, 0.3)" />
+                            <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)" />
+                            <stop offset="100%" stop-color="rgba(255, 255, 255, 0.15)" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="82" fill="rgba(255,255,255,0.01)" stroke="url(#goldRing)" stroke-width="1.5" />
+                    <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" stroke-dasharray="8 6" />
+                    <g style="mix-blend-mode: screen;">
+                        <text x="36" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalS)" filter="url(#royalGlow)" opacity="0.9">S</text>
+                        <text x="76" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalP)" filter="url(#royalGlow)" opacity="1">P</text>
+                        <text x="114" y="122" font-family="'Cinzel', Georgia, serif" font-size="76" font-weight="900" fill="url(#royalG)" filter="url(#royalGlow)" opacity="0.9">G</text>
+                    </g>
+                </svg>
+            </div>
+            <h1 class="royal-title text-4xl sm:text-5xl font-extrabold tracking-widest mb-1">LUICODE</h1>
+            <p class="text-gray-400 text-sm sm:text-base tracking-wider max-w-md">Centro Inteligente de Recursos Académicos</p>
         </header>
 
-        <main class="accordion-menu">
+        <!-- WIDGETS PANEL (GRID SUPERIOR) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Widget de Cuenta Atrás -->
+            <div class="glass-card p-4 flex flex-col justify-between relative">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-xs font-semibold text-sky-400 uppercase tracking-widest block mb-1">Próximos Exámenes</span>
+                        <h3 class="text-md font-bold text-white mb-2" id="countdown-label">Finales de Evaluación</h3>
+                    </div>
+                    <!-- Botón elegante de configuración de fecha -->
+                    <button id="toggle-date-picker" class="text-gray-400 hover:text-white transition-colors p-1 rounded-md" title="Configurar fecha del examen">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Panel de configuración de fecha oculto por defecto -->
+                <div id="date-picker-container" class="hidden my-2 p-2 bg-black/40 border border-white/5 rounded-xl flex flex-col gap-2 transition-all">
+                    <label class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Selecciona la Fecha y Hora:</label>
+                    <div class="flex gap-2">
+                        <input type="datetime-local" id="exam-date-input" class="bg-black/30 text-white border border-white/10 rounded-lg p-1.5 text-xs focus:outline-none focus:border-sky-500 flex-1">
+                        <button id="save-date-btn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold text-[10px] px-3 py-1.5 rounded-lg transition-colors uppercase tracking-wider">Guardar</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-2 text-center my-1 bg-black/20 p-2 rounded-xl">
+                    <div>
+                        <span id="days" class="text-xl font-bold text-white">00</span>
+                        <p class="text-[9px] text-gray-400 uppercase">Días</p>
+                    </div>
+                    <div>
+                        <span id="hours" class="text-xl font-bold text-white">00</span>
+                        <p class="text-[9px] text-gray-400 uppercase">Horas</p>
+                    </div>
+                    <div>
+                        <span id="minutes" class="text-xl font-bold text-white">00</span>
+                        <p class="text-[9px] text-gray-400 uppercase">Min</p>
+                    </div>
+                    <div>
+                        <span id="seconds" class="text-xl font-bold text-emerald-400">00</span>
+                        <p class="text-[9px] text-gray-400 uppercase">Seg</p>
+                    </div>
+                </div>
+                <span class="text-[10px] text-gray-500 text-center block mt-1">Mantén el enfoque en tus objetivos académicos.</span>
+            </div>
+
+            <!-- Widget de Notas Rápidas -->
+            <div class="glass-card p-4 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-semibold text-purple-400 uppercase tracking-widest block mb-1">Recordatorio Rápido</span>
+                    <h3 class="text-md font-bold text-white mb-2">Tareas Pendientes</h3>
+                </div>
+                <textarea id="quick-notes" placeholder="Escribe aquí tareas, fechas clave o recordatorios urgentes... Se guardará solo." 
+                          class="w-full h-20 bg-black/20 rounded-xl p-2 text-xs text-gray-200 placeholder-gray-500 border border-white/5 focus:outline-none focus:border-purple-500/50 resize-none transition-colors"></textarea>
+            </div>
+        </div>
+
+        <!-- BARRA DE PROGRESO GLOBAL -->
+        <section class="glass-card p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">Progreso de estudio</span>
+                </div>
+                <span id="progress-text" class="text-sm font-bold text-emerald-400">0% Completado</span>
+            </div>
+            <div class="w-full bg-black/30 rounded-full h-3 overflow-hidden border border-white/5">
+                <div id="progress-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            </div>
+        </section>
+
+        <!-- BUSCADOR INTELIGENTE -->
+        <section class="relative w-full">
+            <span class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-gray-500 text-lg">🔍</span>
+            <input type="text" id="search-bar" placeholder="Buscar materias, temas o conceptos..." 
+                   class="w-full pl-11 pr-4 py-3.5 bg-white/[0.03] border border-white/10 rounded-2xl text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-500/50 transition-all text-sm backdrop-filter backdrop-blur-xl">
+        </section>
+
+        <!-- CONTENIDO PRINCIPAL: ACORDEÓN DE MATERIAS -->
+        <main class="flex flex-col gap-4" id="main-accordion">
             
             <!-- SECCIÓN ISO -->
-            <div class="category-group">
-                <button class="category-header">
-                    ISO
+            <div class="category-group glass-card overflow-hidden" data-category="ISO">
+                <button class="category-header w-full flex items-center justify-between p-5 text-left font-bold text-base tracking-wider hover:bg-white/[0.01] transition-colors">
+                    <span class="flex items-center gap-3">
+                        ISO (Implantación de Sistemas Operativos)
+                    </span>
                 </button>
-                <div class="topics-content">
-                    <div class="topics-list">
-                        <!-- Reemplaza los "#" por tus respectivos enlaces de Drive -->
-                        <a href="https://drive.google.com/your-iso-tema1" target="_blank" class="btn-topic">
-                            Tema 1: Software básico
-                        </a>
-                        <a href="https://drive.google.com/your-iso-tema2" target="_blank" class="btn-topic">
-                            Tema 2: Administración de software de base
-                        </a>
-                        <a href="https://drive.google.com/your-iso-tema3" target="_blank" class="btn-topic">
-                            Tema 3: Aseguramiento de la administración
-                        </a>
+                <div class="topics-content bg-black/20">
+                    <div class="p-4 flex flex-col gap-3">
+                        <!-- Tema 1 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-iso-t1">
+                                <a href="https://drive.google.com/your-iso-tema1" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 1: Software básico
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-sky-500/10 text-sky-300 border border-sky-500/20 px-2 py-1 rounded-md ml-2">Drive</span>
+                        </div>
+                        <!-- Tema 2 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-iso-t2">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 2: Administración de software de base
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/20 px-2 py-1 rounded-md ml-2">PDF</span>
+                        </div>
+                        <!-- Tema 3 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-iso-t3">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 3: Aseguramiento de la administración
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-1 rounded-md ml-2">Práctica</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- SECCIÓN FUHA -->
-            <div class="category-group">
-                <button class="category-header">
-                    FUHA
+            <div class="category-group glass-card overflow-hidden" data-category="FUHA">
+                <button class="category-header w-full flex items-center justify-between p-5 text-left font-bold text-base tracking-wider hover:bg-white/[0.01] transition-colors">
+                    <span class="flex items-center gap-3">
+                        FUHA (Fundamentos de Hardware)
+                    </span>
                 </button>
-                <div class="topics-content">
-                    <div class="topics-list">
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 1: Arquitectura y componentes
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 2: Montaje y ensamblado
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 3: Diagnóstico de averías
-                        </a>
+                <div class="topics-content bg-black/20">
+                    <div class="p-4 flex flex-col gap-3">
+                        <!-- Tema 1 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-fuha-t1">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 1: Arquitectura y componentes básicos
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-sky-500/10 text-sky-300 border border-sky-500/20 px-2 py-1 rounded-md ml-2">Drive</span>
+                        </div>
+                        <!-- Tema 2 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-fuha-t2">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 2: Montaje, ensamblado y precauciones
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-1 rounded-md ml-2">Examen</span>
+                        </div>
+                        <!-- Tema 3 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-fuha-t3">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 3: Diagnóstico de averías y mantenimiento
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-1 rounded-md ml-2">Práctica</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- SECCIÓN PAR -->
-            <div class="category-group">
-                <button class="category-header">
-                    PAR
+            <div class="category-group glass-card overflow-hidden" data-category="PAR">
+                <button class="category-header w-full flex items-center justify-between p-5 text-left font-bold text-base tracking-wider hover:bg-white/[0.01] transition-colors">
+                    <span class="flex items-center gap-3">
+                        PAR (Planificación y Adm. de Redes)
+                    </span>
                 </button>
-                <div class="topics-content">
-                    <div class="topics-list">
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 1: Planificación y diseño de redes
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 2: Direccionamiento IP y subredes
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 3: Configuración y administración
-                        </a>
+                <div class="topics-content bg-black/20">
+                    <div class="p-4 flex flex-col gap-3">
+                        <!-- Tema 1 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-par-t1">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 1: Planificación y diseño de redes locales
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-sky-500/10 text-sky-300 border border-sky-500/20 px-2 py-1 rounded-md ml-2">Drive</span>
+                        </div>
+                        <!-- Tema 2 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-par-t2">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 2: Direccionamiento IP v4/v6 y subredes
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-1 rounded-md ml-2">Examen</span>
+                        </div>
+                        <!-- Tema 3 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-par-t3">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 3: Configuración de switches y routers
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/20 px-2 py-1 rounded-md ml-2">PDF</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- SECCIÓN LENGUAJE -->
-            <div class="category-group">
-                <button class="category-header">
-                    LENGUAJE
+            <div class="category-group glass-card overflow-hidden" data-category="LENGUAJE">
+                <button class="category-header w-full flex items-center justify-between p-5 text-left font-bold text-base tracking-wider hover:bg-white/[0.01] transition-colors">
+                    <span class="flex items-center gap-3">
+                        LENGUAJE (Lenguajes de Marcas)
+                    </span>
                 </button>
-                <div class="topics-content">
-                    <div class="topics-list">
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 1: Introducción a lenguajes de marcas
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 2: HTML5 y CSS3 para el diseño
-                        </a>
-                        <a href="#" target="_blank" class="btn-topic">
-                            Tema 3: Almacenamiento y paso de datos XML
-                        </a>
+                <div class="topics-content bg-black/20">
+                    <div class="p-4 flex flex-col gap-3">
+                        <!-- Tema 1 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-lenguaje-t1">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 1: Introducción a lenguajes de marcas
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-sky-500/10 text-sky-300 border border-sky-500/20 px-2 py-1 rounded-md ml-2">Drive</span>
+                        </div>
+                        <!-- Tema 2 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-lenguaje-t2">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 2: HTML5 estructural y diseño con CSS3
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-1 rounded-md ml-2">Práctica</span>
+                        </div>
+                        <!-- Tema 3 -->
+                        <div class="flex items-center justify-between bg-white/[0.02] border border-white/5 p-3.5 rounded-xl hover:border-white/10 transition-all topic-item">
+                            <div class="flex items-center gap-3 flex-1 min-w-0">
+                                <input type="checkbox" class="custom-checkbox progress-check" id="check-lenguaje-t3">
+                                <a href="#" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white truncate flex-1 block">
+                                    Tema 3: Almacenamiento y validación XML/XSD
+                                </a>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/20 px-2 py-1 rounded-md ml-2">PDF</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </main>
 
-        <footer>
-            <p>© 2026 - CREADO CON GITHUB PAGES</p>
+        <!-- WIDGET DE CITA MOTIVACIONAL -->
+        <section class="glass-card p-4 text-center italic text-xs text-gray-400 border border-white/5 relative overflow-hidden">
+            <span class="absolute top-1 left-2 text-3xl opacity-10 font-serif text-white">“</span>
+            <p id="quote-box" class="px-4">El esfuerzo de hoy es el éxito del mañana. Sigue sumando pequeños progresos.</p>
+            <span class="absolute bottom-1 right-2 text-3xl opacity-10 font-serif text-white">”</span>
+        </section>
+
+        <!-- PIE DE PÁGINA -->
+        <footer class="text-center mt-4">
+            <p class="text-[10px] tracking-widest text-gray-500 uppercase">© 2026 - Creado con GitHub Pages & LuiCode</p>
         </footer>
     </div>
 
+    <!-- CÓDIGO LÓGICO DE INTERACCIÓN (JAVASCRIPT) -->
     <script>
-        // Lógica de acordeón interactivo (iOS Style)
+        // --- 1. LÓGICA DE ACORDEONES DESPLEGABLES ---
         document.querySelectorAll('.category-header').forEach(header => {
             header.addEventListener('click', function(e) {
+                // Previene desplegar si se hace clic accidentalmente sobre un ripple interno
+                if (e.target.closest('.water-drop')) return;
+
                 const group = this.parentElement;
                 const content = group.querySelector('.topics-content');
                 const isOpen = group.classList.contains('open');
 
-                // Cerrar otros acordeones abiertos si se desea (Comportamiento exclusivo)
+                // Cerrar las otras materias para mantener la elegancia limpia
                 document.querySelectorAll('.category-group').forEach(otherGroup => {
                     if (otherGroup !== group && otherGroup.classList.contains('open')) {
                         otherGroup.classList.remove('open');
@@ -432,7 +516,7 @@
                     }
                 });
 
-                // Alternar estado del acordeón pulsado
+                // Alternar el estado actual
                 if (isOpen) {
                     group.classList.remove('open');
                     content.style.maxHeight = null;
@@ -443,10 +527,12 @@
             });
         });
 
-        // Efecto Gota de Agua (Onda/Ripple) en clicks e interactivos
-        document.querySelectorAll('.category-header, .btn-topic').forEach(element => {
+        // --- 2. EFECTO GOTA DE AGUA DE IPHONE (LIQUID RIPPLE) ---
+        document.querySelectorAll('.category-header, .topic-item, .glass-card').forEach(element => {
             element.addEventListener('click', function(e) {
-                // No bloquear enlaces reales
+                // No aplicar el efecto al marcar directamente un checkbox para evitar rebotes visuales
+                if (e.target.type === 'checkbox') return;
+
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -463,6 +549,178 @@
                 }, 800);
             });
         });
+
+        // --- 3. SEGUIMIENTO DE PROGRESO (LOCAL STORAGE) ---
+        const checkboxes = document.querySelectorAll('.progress-check');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            let checkedCount = 0;
+
+            checkboxes.forEach(chk => {
+                if (chk.checked) {
+                    checkedCount++;
+                    localStorage.setItem(chk.id, 'true');
+                } else {
+                    localStorage.removeItem(chk.id);
+                }
+            });
+
+            const percentage = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+            progressBar.style.width = `${percentage}%`;
+            progressText.innerText = `${percentage}% Completado`;
+
+            // Efecto de color al completarse al 100%
+            if (percentage === 100) {
+                progressText.classList.replace('text-emerald-400', 'text-yellow-400');
+                progressBar.classList.replace('from-emerald-500', 'from-yellow-400');
+            } else {
+                progressText.classList.add('text-emerald-400');
+                progressBar.classList.add('from-emerald-500');
+            }
+        }
+
+        // Cargar progreso del almacenamiento del navegador
+        checkboxes.forEach(chk => {
+            if (localStorage.getItem(chk.id) === 'true') {
+                chk.checked = true;
+            }
+            chk.addEventListener('change', updateProgress);
+        });
+
+        // Inicializar barra de progreso al cargar
+        updateProgress();
+
+        // --- 4. BUSCADOR INTELIGENTE EN TIEMPO REAL ---
+        const searchBar = document.getElementById('search-bar');
+        searchBar.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+
+            document.querySelectorAll('.category-group').forEach(group => {
+                const categoryName = group.getAttribute('data-category').toLowerCase();
+                const topics = group.querySelectorAll('.topic-item');
+                let matchesInCategory = false;
+
+                topics.forEach(topic => {
+                    const topicText = topic.querySelector('a').innerText.toLowerCase();
+                    if (topicText.includes(query) || categoryName.includes(query)) {
+                        topic.classList.remove('topic-hidden');
+                        matchesInCategory = true;
+                    } else {
+                        topic.classList.add('topic-hidden');
+                    }
+                });
+
+                // Si hay coincidencias o la barra de búsqueda está vacía, mostramos la categoría
+                if (matchesInCategory || query === '') {
+                    group.classList.remove('category-hidden');
+                    // Forzar abrir la categoría si hay una búsqueda activa para ver los resultados directos
+                    if (query !== '') {
+                        group.classList.add('open');
+                        const content = group.querySelector('.topics-content');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                } else {
+                    group.classList.add('category-hidden');
+                }
+            });
+        });
+
+        // --- 5. BLOC DE NOTAS RÁPIDAS (PERSISTENCIA LOCAL) ---
+        const notesArea = document.getElementById('quick-notes');
+        notesArea.value = localStorage.getItem('luicode_notes') || '';
+        notesArea.addEventListener('input', function() {
+            localStorage.setItem('luicode_notes', this.value);
+        });
+
+        // --- 6. TEMPORIZADOR DE CUENTA ATRÁS ACADÉMICO ---
+        // Fecha por defecto inicial si no hay ninguna guardada en local
+        const defaultExamDate = new Date("December 20, 2026 09:00:00").getTime();
+        let targetExamDate = localStorage.getItem('luicode_exam_date') 
+            ? parseInt(localStorage.getItem('luicode_exam_date'), 10) 
+            : defaultExamDate;
+
+        // Referencias de elementos del selector de fecha
+        const toggleDatePickerBtn = document.getElementById('toggle-date-picker');
+        const datePickerContainer = document.getElementById('date-picker-container');
+        const examDateInput = document.getElementById('exam-date-input');
+        const saveDateBtn = document.getElementById('save-date-btn');
+
+        // Poner la fecha actual en el selector de fecha para facilidad de uso
+        function formatDateTimeLocal(timestamp) {
+            const date = new Date(timestamp);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
+        
+        examDateInput.value = formatDateTimeLocal(targetExamDate);
+
+        // Mostrar/Ocultar el panel del calendario
+        toggleDatePickerBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevenir interferencias de clicks
+            datePickerContainer.classList.toggle('hidden');
+        });
+
+        // Guardar la nueva fecha y recargar el contador
+        saveDateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const userDateStr = examDateInput.value;
+            if (userDateStr) {
+                const newTimestamp = new Date(userDateStr).getTime();
+                if (!isNaN(newTimestamp)) {
+                    targetExamDate = newTimestamp;
+                    localStorage.setItem('luicode_exam_date', newTimestamp.toString());
+                    datePickerContainer.classList.add('hidden');
+                    updateCountdown();
+                }
+            }
+        });
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetExamDate - now;
+
+            if (difference < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                document.getElementById('countdown-label').innerText = "¡Temporada de Exámenes!";
+                return;
+            } else {
+                document.getElementById('countdown-label').innerText = "Finales de Evaluación";
+            }
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? "0" + d : d;
+            document.getElementById('hours').innerText = h < 10 ? "0" + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? "0" + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? "0" + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- 7. FRASES MOTIVACIONALES ROTATIVAS ---
+        const quotes = [
+            "El esfuerzo de hoy es el éxito del mañana. Sigue sumando pequeños progresos.",
+            "La constancia es la clave del dominio de la tecnología. ¡Tú puedes con ISO!",
+            "Las redes se construyen cable a cable, y tu aprendizaje tema a tema. ¡Vamos con PAR!",
+            "Un programador excelente es solo un estudiante que nunca se rindió.",
+            "El conocimiento es poder. Invierte en ti mismo todos los días."
+        ];
+        // Selecciona una frase aleatoria cada vez que se recarga la web
+        document.getElementById('quote-box').innerText = quotes[Math.floor(Math.random() * quotes.length)];
     </script>
 </body>
 </html>
